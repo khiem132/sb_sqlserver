@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position item</title>
+    <link rel="stylesheet" href="/css/mysite.css">
+</head>
+
+<body>
+    <div class="form-box">        
+    <form th:action="@{/admin/position/newposition}" method="post" th:object="${new_item}" >
+        <div>
+            <label for="title">Title</label>
+            <input type="text" th:field="*{title}" alt="" placeholder="input text">
+        </div>
+        <div>
+            <label for="status">status</label>
+            <input type="checkbox" name="status" value="0" title="status" placeholder="">
+        </div>
+        <div><input type="submit" value="Save" alt="">
+        </div>
+    </form>
+</div>
+<script>
+    window.onload=()=>{
+        var lschk=document.querySelectorAll("input[type=checkbox]");
+        for(i=0;i<lschk.length;i++){
+            var item=lschk[i];
+            item.removeAttribute("checked");
+            item.addEventListener("change",(event)=>{
+                var item_target=event.currentTarget;
+                if (item_target.checked) {
+                    item_target.value="1";
+                  } else {
+                    item_target.value="0";
+                  }
+            });
+        }
+    }
+</script>
+</body>
+
+</html>

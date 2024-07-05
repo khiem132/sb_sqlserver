@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position management</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr th:each="item: ${positions}">
+                <!-- item.id : item.getId() -->
+                <td th:text="${item.id}" />
+                <!-- item.title: item.getTitle() -->
+                <td th:text="${item.title}" />
+                <td>
+                    <input type="checkbox" title="status" name="status" id="status" th:value="${item.status}"
+                        onchange="change(event)" th:if="${item.status} == 0"
+                        th:attr="data-id=${item.id},data-title=${item.title}">
+                    <input type="checkbox" title="status" name="status" id="status" th:value="${item.status}"
+                        onchange="change(event)" checked="checked" th:unless="${item.status} == 0"
+                        th:attr="data-id=${item.id},data-title=${item.title}">
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a th:href="@{/admin/position/rmitem(id=${item.id})}">delete</a>
+                            </td>
+                            <td>
+                                <a th:href="@{/admin/position/changeitem(id=${item.id})}">edit</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <table>
+                <tr>
+                    
+                    <td th:each="i : ${#numbers.sequence( 0,pv.Total_page ,1)}">
+                       <a th:href="@{/admin/position(cp=${i+1})}" title="paging"> <span th:text="${i+1}"></span></a>
+                    </td>
+                </tr>
+            </table>
+        </tfoot>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        function post(url_str, data_json, data_return) {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                // print JSON response
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    // parse JSON
+                    data_return = JSON.parse(xhr.responseText);
+                }
+            }
+            // open request
+            xhr.open('POST', url_str,true);
+            // set `Content-Type` header            
+            xhr.withCredentials = true;
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');            
+            // send rquest with JSON payload
+            xhr.send(JSON.stringify(data_json));
+        }
+        function change(event) {
+            var item = event.target;
+            var _id = item.getAttribute("data-id");
+            var _title = item.getAttribute("data-title");
+            var _value = item.value;
+            if (item.checked == true) {
+                _value = 1;
+            } else {
+                _value = 0;
+            }
+            item.value = _value;
+            var data = { id: parseInt(_id), title: _title, status: _value };
+            var dataReturn = "";
+            console.log(data);
+           /* 
+            $.ajax({
+                url:"/admin/position/active",
+                type: 'POST',
+                dataType : "json",
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(data),
+                success : function(result) {
+                    alert(result.success); // result is an object which is created from the returned JSON
+                },
+            });
+            */
+            post("/admin/position/active",data,dataReturn);
+
+        }
+    </script>
+</body>
+
+</html>
