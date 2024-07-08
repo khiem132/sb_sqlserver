@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Type category administrator</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>Position</th>            
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr th:each="item: ${types}">
+                <!-- item.id : item.getId() -->
+                <td th:text="${item.id}" />
+                <!-- item.title: item.getTitle() -->
+                <td th:text="${item.title}" />
+                
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a th:href="@{/admin/types/rmitem(id=${item.id})}">delete</a>
+                            </td>
+                            <td>
+                                <a th:href="@{/admin/types/changeitem(id=${item.id})}">edit</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <table>
+                <tr>
+                    <!-- i=0;i<total_page;i++ -->
+                    
+                    <td th:each="i : ${#numbers.sequence( 0,pv.Total_page ,1)}">
+                       <a th:if="${i+1 != pv.Page_current}" th:href="@{/admin/types(cp=${i+1})}" title="paging"> <span th:text="${i+1}"></span></a>
+                       <a th:if="${i+1 == pv.Page_current}" onload="javascript:event.preventDefault=false" title="paging"><span th:text="${i+1}"></span></a>
+                    </td>
+                </tr>
+            </table>
+        </tfoot>
+    </table>
+</body>
+</html>
