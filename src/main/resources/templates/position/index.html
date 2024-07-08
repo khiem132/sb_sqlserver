@@ -46,9 +46,11 @@
         <tfoot>
             <table>
                 <tr>
+                    <!-- i=0;i<total_page;i++ -->
                     
                     <td th:each="i : ${#numbers.sequence( 0,pv.Total_page ,1)}">
-                       <a th:href="@{/admin/position(cp=${i+1})}" title="paging"> <span th:text="${i+1}"></span></a>
+                       <a th:if="${i+1 != pv.Page_current}" th:href="@{/admin/position(cp=${i+1})}" title="paging"> <span th:text="${i+1}"></span></a>
+                       <a th:if="${i+1 == pv.Page_current}" onload="javascript:event.preventDefault=false" title="paging"><span th:text="${i+1}"></span></a>
                     </td>
                 </tr>
             </table>
