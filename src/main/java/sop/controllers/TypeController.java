@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import sop.models.TypeCategory;
 import sop.modelviews.PageView;
 import sop.repositories.TypeRepository;
 import sop.utils.Views;
@@ -25,4 +27,12 @@ public class TypeController {
 		model.addAttribute("pv", pv);
 		return Views.TYPE_INDEX;
 	}
+	@GetMapping("/create")
+	public String input_type(Model model) {
+		TypeCategory p = new TypeCategory();
+		p.setTitle("");		
+		model.addAttribute("new_item", p);
+		return Views.TYPE_CREATE;
+	}
+
 }

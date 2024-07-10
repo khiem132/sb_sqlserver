@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>new type</title>
+<link rel="stylesheet" href="/css/mysite.css">
+</head>
+<body>
+    <div class="form-box">        
+        <form th:action="@{/admin/types/newtype}" method="post" th:object="${new_item}" >
+            <div>
+                <label for="title">Title</label>
+                <input type="text" th:field="*{title}" alt="" placeholder="input text">
+            </div>            
+            <div><input type="submit" value="Save" alt="">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
