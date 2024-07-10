@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import sop.models.Position;
 import sop.models.TypeCategory;
 import sop.modelviews.PageView;
 import sop.modelviews.Type_mapper;
@@ -33,5 +35,35 @@ public class TypeRepository {
 				Views.COL_TYPE_TITLE, Views.TBL_TYPE, Views.COL_TYPE_ID);
 		return db.query(str_query_type, new Type_mapper(),
 				new Object[] { (pageItem.getPage_current() - 1) * pageItem.getPage_size(), pageItem.getPage_size() });
+	}
+	public String newType(TypeCategory newItem) {
+		try {
+			String str_query=String.format("insert into %s values( ?)", Views.TBL_TYPE) ;
+			int rowaccept = db.update(str_query,
+					new Object[] { newItem.getTitle() });
+			if (rowaccept == 1) {
+				return "success";
+			}
+			return "failed";
+		} catch (Exception e) {
+			// TODO: handle exception
+			// save exception to log database
+		}
+		return "insert exception data";
+	}
+	public String deleteType(int id) {
+		try {
+			String strquery=String.format("delete from %s where _id=?", Views.TBL_TYPE);
+			int rowaccept = db.update(strquery, new Object[] { id });
+			if (rowaccept == 1) {
+				return "success";
+			}
+			return "failed";
+		} catch (Exception e) {
+			// TODO: handle exception
+			// save exception to log database
+
+		}
+		return "delete exception data";
 	}
 }
