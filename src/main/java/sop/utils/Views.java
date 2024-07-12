@@ -5,6 +5,8 @@ public final class Views {
 	public static String POSITION_CREATE = "position/input_position";
 	public static String POSITION_EDIT = "position/edit_position";
 	public static String TYPE_INDEX="types/index";
+	public static String TYPE_CREATE="types/new_type";
+	public static String TYPE_EDIT="types/edit_type";
 	// region position
 	public static String TBL_POSITION = "tbl_position";
 	public static String COL_POSITION_ID = "_id";

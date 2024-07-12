@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>edit type</title>
+</head>
+<body>
+    <div class="form-box">        
+        <form th:action="@{/admin/types/update}" method="post" th:object="${up_item}" >
+            <div>
+                <label for="title">Title</label>
+                <input type="text" th:field="*{title}" alt="" placeholder="input text">
+                <input type="hidden" th:field="*{id}" id="id">
+            </div>            
+            <div><input type="submit" value="Save" alt="">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

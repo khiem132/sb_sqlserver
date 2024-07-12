@@ -51,4 +51,16 @@ public class TypeController {
 		rep.deleteType(_id_type);
 		return "redirect:/admin/types";
 	}
+	@GetMapping("/changeitem")
+	public String change_position(@RequestParam String id, Model model) {
+		int _id_position = Integer.parseInt(id);
+		model.addAttribute("up_item", rep.findById(_id_position));
+		return Views.TYPE_EDIT;
+	}
+	@PostMapping("/update")
+	public String update_type(@ModelAttribute TypeCategory up_item) {
+//		Position item=new_item;
+		rep.update(up_item);
+		return "redirect:/admin/types";
+	}
 }

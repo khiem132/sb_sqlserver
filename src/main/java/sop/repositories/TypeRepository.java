@@ -3,6 +3,7 @@ package sop.repositories;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -65,5 +66,23 @@ public class TypeRepository {
 
 		}
 		return "delete exception data";
+	}
+	public TypeCategory findById(int id) {
+		String str_query=String.format("select * from %s where _id=?", Views.TBL_TYPE);
+		return db.queryForObject(str_query, new Type_mapper(), new Object[] { id });
+	}
+	public String update(TypeCategory item) {
+		try {
+			String str_query=String.format("update %s set %s = ? where %s = ?", Views.TBL_TYPE,Views.COL_TYPE_TITLE,Views.COL_TYPE_ID);
+			int rowaccept = db.update(str_query,
+					new Object[] { item.getTitle(), item.getId() });
+			if (rowaccept == 1) {
+				return "success";
+			}
+			return "failed";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "update exception data";
 	}
 }
