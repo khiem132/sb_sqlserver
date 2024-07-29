@@ -1,5 +1,6 @@
 package sop.models;
 
+
 public class Category {
 	private int _id;
 	private String _title;
@@ -8,6 +9,7 @@ public class Category {
 	private int _id_type;
 	private int _status;
 	private String _type_title;
+	
 	public Category() {
 		super();
 		this._id=0;
@@ -35,7 +37,7 @@ public class Category {
 	public String getTitle() {
 		return _title;
 	}
-	public void set_title(String _title) {
+	public void setTitle(String _title) {
 		this._title = _title;
 	}
 	public String getImage() {
@@ -50,10 +52,10 @@ public class Category {
 	public void setNo(int _no) {
 		this._no = _no;
 	}
-	public int getId_type() {
+	public int getIdType() {
 		return _id_type;
 	}
-	public void setId_type(int _id_type) {
+	public void setIdType(int _id_type) {
 		this._id_type = _id_type;
 	}
 	public int getStatus() {
@@ -68,4 +70,6 @@ public class Category {
 	public void setTypeTitle(String _type_title ) {
 		this._type_title=_type_title;
 	}
+	
+	
 }

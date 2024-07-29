@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import sop.models.Position;
 import sop.models.TypeCategory;
 import sop.modelviews.PageView;
 import sop.repositories.TypeRepository;

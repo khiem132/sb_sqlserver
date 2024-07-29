@@ -7,6 +7,8 @@ public final class Views {
 	public static String TYPE_INDEX="types/index";
 	public static String TYPE_CREATE="types/new_type";
 	public static String TYPE_EDIT="types/edit_type";
+	public static String CATEGORY_CREATE="categories/new_category";
+	public static String CATEGORY_INDEX="categories/index";
 	// region position
 	public static String TBL_POSITION = "tbl_position";
 	public static String COL_POSITION_ID = "_id";
@@ -16,7 +18,16 @@ public final class Views {
 	//region type
 	public static String TBL_TYPE="tbl_type";
 	public static String COL_TYPE_ID="_id";
-	public static String COL_TYPE_TITLE="_title";
+	public static String COL_TYPE_TITLE="_title";	
+	//end region
+	//region category
+	public static String TBL_CATEGORY="tbl_category";
+	public static String COL_CATEGORY_ID="_id";
+	public static String COL_CATEGORY_TITLE="_title";	
+	public static String COL_CATEGORY_IMAGE="_image";
+	public static String COL_CATEGORY_NO="_no";
+	public static String COL_CATEGORY_ID_TYPE="_id_type";
+	public static String COL_CATEGORY_STATUS="_status";
 	//end region
 	
 }
