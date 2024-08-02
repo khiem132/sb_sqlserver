@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import sop.models.Category;
+import sop.utils.FileUtility;
 import sop.utils.Views;
 
 public class Category_mapper  implements RowMapper<Category> {

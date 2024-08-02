@@ -60,7 +60,7 @@ public class CategoryController {
 		return "redirect:/admin/cates";
 	}
 	@GetMapping("/rmitem")
-	public String rm_cate(@RequestParam String id) {
+	public String rm_position(@RequestParam String id) {
 		int idCate = Integer.parseInt(id);
 		repCate.deleteCategory(idCate);
 		return "redirect:/admin/cates";

@@ -47,7 +47,7 @@ public class FileUtility {
 	public static String getBase64EncodedImage(String folderName,String imageName) {
 		String folderUpload=System.getProperty("user.dir")+"/"+ folderName;		
 		try {
-			FileInputStream fin=new FileInputStream(folderUpload +"/"+imageName);
+			FileInputStream fin=new FileInputStream(folderName+"/"+imageName);
 			byte[] data= fin.readAllBytes();
 			return Base64.getEncoder().encodeToString(data);
 		} catch (FileNotFoundException e) {
