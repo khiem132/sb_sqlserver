@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import sop.models.Category;
 import sop.models.UserAccount;
-import sop.modelviews.Category_mapper;
 import sop.modelviews.UserAccount_mapper;
 import sop.utils.Views;
 
