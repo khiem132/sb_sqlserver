@@ -4,32 +4,32 @@ public class AccountAPI {
 	private int _id=0;
 	private String _url="";
 	private String _dayCreate="";
-	public AccountAPI(int _id, String _url, String _dayCreate) {
+	public AccountAPI(int id, String url, String dayCreate) {
 		super();
-		this._id = _id;
-		this._url = _url;
-		this._dayCreate = _dayCreate;
+		this._id = id;
+		this._url = url;
+		this._dayCreate = dayCreate;
 	}
 	public AccountAPI() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int get_id() {
+	public int getId() {
 		return _id;
 	}
-	public void set_id(int _id) {
+	public void setId(int _id) {
 		this._id = _id;
 	}
-	public String get_url() {
+	public String getUrl() {
 		return _url;
 	}
-	public void set_url(String _url) {
+	public void setUrl(String _url) {
 		this._url = _url;
 	}
-	public String get_dayCreate() {
+	public String getDayCreate() {
 		return _dayCreate;
 	}
-	public void set_dayCreate(String _dayCreate) {
+	public void setDayCreate(String _dayCreate) {
 		this._dayCreate = _dayCreate;
 	}
 	

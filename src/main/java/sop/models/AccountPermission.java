@@ -8,29 +8,29 @@ public class AccountPermission {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AccountPermission(int _user_type, int _id_api, String _dayCreate) {
+	public AccountPermission(int user_type, int id_api, String dayCreate) {
 		super();
-		this._user_type = _user_type;
-		this._id_api = _id_api;
-		this._dayCreate = _dayCreate;
+		this._user_type = user_type;
+		this._id_api = id_api;
+		this._dayCreate = dayCreate;
 	}
-	public int get_user_type() {
+	public int getUserType() {
 		return _user_type;
 	}
-	public void set_user_type(int _user_type) {
-		this._user_type = _user_type;
+	public void setUserType(int user_type) {
+		this._user_type = user_type;
 	}
-	public int get_id_api() {
+	public int getIdApi() {
 		return _id_api;
 	}
-	public void set_id_api(int _id_api) {
-		this._id_api = _id_api;
+	public void setIdApi(int id_api) {
+		this._id_api = id_api;
 	}
-	public String get_dayCreate() {
+	public String getDayCreate() {
 		return _dayCreate;
 	}
-	public void set_dayCreate(String _dayCreate) {
-		this._dayCreate = _dayCreate;
+	public void setDayCreate(String dayCreate) {
+		this._dayCreate = dayCreate;
 	}
 	
 }

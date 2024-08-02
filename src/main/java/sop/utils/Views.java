@@ -52,5 +52,16 @@ public final class Views {
 	public static String COL_USER_LOG_WEB_TOKEN="_web_token";
 	public static String COL_USER_LOG_ACTIVE="_active";
 	//end region
-		
+	//region table api
+	public static String TBL_API="tbl_api";
+	public static String COL_API_ID="_id";
+	public static String COL_API_URL="_url";
+	public static String COL_API_DAY_CREATE="_day_create";
+	//end region
+	//region table permission
+	public static String TBL_PERMISSION="tbl_permission";
+	public static String COL_PERMISSION_USER_TYPE="_user_type";
+	public static String COL_PERMISSION_ID_API="_id_api";
+	public static String COL_PERMISSION_DAY_CREATE="_day_create";
+	//end region
 }
